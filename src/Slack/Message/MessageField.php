@@ -22,6 +22,7 @@ class MessageField
      * Set title
      *
      * @param string $title the value to set
+     * @return $this
      */
     public function setTitle($title)
     {
@@ -44,6 +45,7 @@ class MessageField
      * Set value
      *
      * @param string $value the value to set
+     * @return $this
      */
     public function setValue($value)
     {
@@ -66,6 +68,7 @@ class MessageField
      * Set short
      *
      * @param string $short the value to set
+     * @return $this
      */
     public function setShort($short)
     {

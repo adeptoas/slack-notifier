@@ -5,7 +5,7 @@ namespace Slack\Message;
 /**
  * Class: Message
  *
- * @see Slack\Message\MessageInterface
+ * @see \Slack\Message\MessageInterface
  */
 class Message implements MessageInterface
 {
@@ -66,6 +66,7 @@ class Message implements MessageInterface
      * Set channel
      *
      * @param string $channel the value to set
+     * @return $this
      */
     public function setChannel($channel)
     {
@@ -88,6 +89,7 @@ class Message implements MessageInterface
      * Set username
      *
      * @param string $username the value to set
+     * @return $this
      */
     public function setUsername($username)
     {
@@ -110,6 +112,7 @@ class Message implements MessageInterface
      * Set icon_emoji
      *
      * @param string $icon_emoji the value to set
+     * @return $this
      */
     public function setIconEmoji($icon_emoji)
     {
@@ -132,6 +135,7 @@ class Message implements MessageInterface
      * Set icon_url
      *
      * @param string $icon_url the value to set
+     * @return $this
      */
     public function setIconUrl($icon_url)
     {
@@ -154,6 +158,7 @@ class Message implements MessageInterface
      * Set link_names
      *
      * @param string $link_names the value to set
+     * @return $this
      */
     public function enableLinkNames($link_names)
     {
@@ -186,6 +191,7 @@ class Message implements MessageInterface
      * Set attachments
      *
      * @param MessageAttachment[] attachments the value to set
+     * @return $this
      */
     public function setAttachments($attachments)
     {
@@ -198,6 +204,7 @@ class Message implements MessageInterface
      * Set markdown
      *
      * @param boolean $mrkdwn
+     * @return $this
      */
     public function setMrkdwn($mrkdwn)
     {

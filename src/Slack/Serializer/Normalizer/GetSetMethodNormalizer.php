@@ -32,6 +32,7 @@ class GetSetMethodNormalizer extends BaseGetSetMethodNormalizer
      * fromCamelCase
      *
      * @param string $str
+     * @return mixed
      */
     protected function fromCamelCase($str)
     {

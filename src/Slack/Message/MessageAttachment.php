@@ -26,6 +26,7 @@ class MessageAttachment
      * addField
      *
      * @param MessageField $field
+     * @return $this
      */
     public function addField(MessageField $field)
     {
@@ -48,6 +49,7 @@ class MessageAttachment
      * Set fields
      *
      * @param MessageField[] $fields the value to set
+     * @return $this
      */
     public function setFields($fields)
     {
@@ -70,6 +72,7 @@ class MessageAttachment
      * Set fallback
      *
      * @param string $fallback the value to set
+     * @return $this
      */
     public function setFallback($fallback)
     {
@@ -92,6 +95,7 @@ class MessageAttachment
      * Set text
      *
      * @param string $text the value to set
+     * @return $this
      */
     public function setText($text)
     {
@@ -114,6 +118,7 @@ class MessageAttachment
      * Set pretext
      *
      * @param string $pretext the value to set
+     * @return $this
      */
     public function setPretext($pretext)
     {
@@ -136,6 +141,7 @@ class MessageAttachment
      * Set color
      *
      * @param string $color the value to set
+     * @return $this
      */
     public function setColor($color)
     {
@@ -148,6 +154,7 @@ class MessageAttachment
      * Set title
      *
      * @param string $title the value to set
+     * @return $this
      */
     public function setTitle($title)
     {
@@ -169,6 +176,7 @@ class MessageAttachment
      * Set title_link
      *
      * @param string $title_link the value to set
+     * @return $this
      */
     public function setTitleLink($title_link)
     {
@@ -190,6 +198,7 @@ class MessageAttachment
      * Set author_name
      *
      * @param string $author_name the value to set
+     * @return $this
      */
     public function setAuthorName($author_name)
     {
@@ -211,6 +220,7 @@ class MessageAttachment
      * Set author_link
      *
      * @param string $author_link the value to set
+     * @return $this
      */
     public function setAuthorLink($author_link)
     {
@@ -233,6 +243,7 @@ class MessageAttachment
      * Set author_icon
      *
      * @param string $author_icon the value to set
+     * @return $this
      */
     public function setAuthorIcon($author_icon)
     {
@@ -254,6 +265,7 @@ class MessageAttachment
      * Set image_url
      *
      * @param string $image_url the value to set
+     * @return $this
      */
     public function setImageUrl($image_url)
     {
@@ -274,7 +286,8 @@ class MessageAttachment
     /**
      * Set mrkdwn_in property
      *
-     * @param string[] $$mrkdwn_in array of fields to set markdown in
+     * @param string [] $$mrkdwn_in array of fields to set markdown in
+     * @return $this
      */
     public function setMrkdwnIn($mrkdwn_in)
     {

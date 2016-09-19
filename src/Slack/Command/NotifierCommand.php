@@ -59,13 +59,16 @@ class NotifierCommand extends Command
      * [execute description]
      * @param  InputInterface  $input  [description]
      * @param  OutputInterface $output [description]
-     * @return [type]          [description]
+     * @return int          always true
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
+        /** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
         $client = new \Slack\Client($input->getOption('team'),$input->getOption('token'));
+        /** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
         $slack = new \Slack\Notifier($client);
+        /** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
         $message = new \Slack\Message\Message($input->getArgument('message'));
 
         $message->setChannel($input->getArgument('channel'))
@@ -77,5 +80,6 @@ class NotifierCommand extends Command
         }
         $slack->notify($message);
         $output->writeln("Sent!");
+        return 0;
     }
 }
