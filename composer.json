@@ -2,7 +2,7 @@
     "name": "polem/slack-notifier",
     "description": "A simple slack wrapper",
     "require": {
-        "guzzle/guzzle": "~5.0",
+        "guzzlehttp/guzzle": "<5.0",
         "symfony/serializer": "~3.0",
         "symfony/console": "~3.0"
     },
