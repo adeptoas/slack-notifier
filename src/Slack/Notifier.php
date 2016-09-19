@@ -2,18 +2,20 @@
 
 namespace Slack;
 
+use GuzzleHttp\Message\Request;
 use Slack\Message\MessageInterface;
-
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Slack\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+
 
 class Notifier
 {
     /**
      * client
      *
-     * @var mixed
+     * @var \Slack\Client $client
      */
     protected $client;
 
@@ -30,11 +32,11 @@ class Notifier
      * @param mixed $client
      * @param mixed $serializer
      */
-    public function __construct($client, $serializer = null)
+    public function __construct(Client $client, $serializer = null)
     {
         if (!$serializer) {
-            $normalizer = new GetSetMethodNormalizer();
-            $normalizer->setCamelizedAttributes(array('icon_emoji', 'icon_url'));
+            $converter = new CamelCaseToSnakeCaseNameConverter(['icon_emoji', 'icon_url']);
+            $normalizer = new GetSetMethodNormalizer(null,$converter);
 
             $serializer = new Serializer(
                 array($normalizer),
@@ -50,19 +52,22 @@ class Notifier
      * notify
      *
      * @param MessageInterface $message
-     * @param boolean          $debug
+     * @param boolean $debug
+     * @return \GuzzleHttp\Message\ResponseInterface
      */
     public function notify(MessageInterface $message, $debug = false)
     {
         $payload = $this->serializer->serialize($message, 'json');
 
-        $request = $this->client->post(
+        /** @var Request $request */
+        $request = $this->client->createRequest('POST',
             '/services/hooks/incoming-webhook',
-            array(),
-            $payload,
-            array('debug' => $debug)
+            [
+                'body' => $payload,
+                'debug' => $debug
+            ]
         );
 
-        $request->send();
+        return $this->client->send($request);
     }
 }
