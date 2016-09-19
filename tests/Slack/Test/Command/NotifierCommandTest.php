@@ -23,11 +23,11 @@ class NotifierCommandTest extends \PHPUnit_Framework_TestCase
         $commandTester = new CommandTester($command);
         try {
             $commandTester->execute(array('command' => $command->getName(), 'message'=>'test','channel'=>'test'));
-            $this->failed('');
+            $this->fail('');
 
-        } catch (\Guzzle\Http\Exception\CurlException $expected) {
+        } catch (\GuzzleHttp\Exception\TransferException $expected) {
             return;
         }
-
+        return;
     }
 }

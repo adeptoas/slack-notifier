@@ -2,7 +2,6 @@
 
 namespace Slack\Test;
 
-use Slack\Client;
 use Slack\Notifier;
 
 use Slack\Message\Message;
@@ -29,17 +28,15 @@ class NotifierTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Slack\Notifier::notify
+     * @covers \Slack\Notifier::notify
      */
     public function testNotify()
     {
         $client = $this->getMockBuilder('\Slack\Client')
-            ->disableOriginalConstructor()
-            ->getMock(array('post'));
+            ->disableOriginalConstructor()->getMock();
 
-        $request = $this->getMockBuilder('\Guzzle\Http\Message\Request')
-            ->disableOriginalConstructor()
-            ->getMock(array('send'));
+        $request = $this->getMockBuilder('\GuzzleHttp\Message\Request')
+            ->disableOriginalConstructor()->getMock();
 
         $message = new Message('Hello world');
 
